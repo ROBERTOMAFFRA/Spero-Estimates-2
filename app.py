@@ -22,7 +22,19 @@ def index():
         client_name = request.form.get("client_name")
         selected = request.form.getlist("items")
         selected_items = [item for item in ITEMS if item["name"] in selected]
-        total = sum(item["price"] for item in selected_items)
+        total = sum(int(item["price"]) for item in selected_items)
+
+        # (continua sua lógica de gerar PDF...)
+
+        # Aqui você provavelmente já retorna o PDF
+        # return send_file(...)
+
+    # 👇 ESTA LINHA ESTAVA FALTANDO
+    return render_template("index.html", items=ITEMS)
+
+
+
+        
 
         # Geração do PDF
         buffer = BytesIO()
