@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spero Restoration - Estimate Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Spero Restoration - Estimate Generator</h1>
+    <form method="POST">
+        {% for item in items %}
+            <div>
+                <input type="checkbox" name="items" value="{{ item.name }}">
+                {{ item.name }} - ${{ item.price }}
+            </div>
+        {% endfor %}
+        <button type="submit">Generate PDF</button>
+    </form>
+</body>
+</html>
