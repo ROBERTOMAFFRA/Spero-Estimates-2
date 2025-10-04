@@ -5,13 +5,19 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <!-- Logo -->
+    <img src="{{ url_for('static', filename='logo.png') }}" 
+         alt="Spero Restoration Logo" 
+         width="200">
+
     <h1>Spero Restoration - Estimate Generator</h1>
+    
     <form method="POST">
         {% for item in items %}
-            <div>
-                <input type="checkbox" name="items" value="{{ item.name }}">
-                {{ item.name }} - ${{ item.price }}
-            </div>
+        <div>
+            <input type="checkbox" name="items" value="{{ item.name }}">
+            {{ item.name }} - ${{ item.price }}
+        </div>
         {% endfor %}
         <button type="submit">Generate PDF</button>
     </form>
